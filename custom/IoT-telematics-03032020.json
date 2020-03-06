@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Intouch Telematics APIs",
-    "description": "A set of powerful telematics APIs which users can use to get all the data related to their devices such as live location,trails,alarms etc. These telematics APIs are powered by MapmyIndia's own INTOUCH platform. You can find out more about Intouch  at [http://mapmyindia.com/intouch](http://mapmyindia.com/intouch)",
+    "title": "Intouch IoT Telematics APIs",
+    "description": "A set of powerful telematics APIs which users can use to get all the data related to their devices such as live location,trails,alarms etc. These telematics APIs are powered by MapmyIndia's own INTOUCH platform. MapmyIndia InTouch easily integrates into existing cloud services via our tracking & telematics APIs. The API & SDK libraries provide powerful, efficient and accurate positioning for the IoT devices on InTouch applications for Android, iOS and the web. You can find out more about Intouch  at [http://mapmyindia.com/intouch](http://mapmyindia.com/intouch)",
     "termsOfService": "https://www.mapmyindia.com/about/terms-conditions",
     "contact": {
       "email": "apisupport@mapmyindia.com"
@@ -14,7 +14,7 @@
     "version": "1.0.0"
   },
   "externalDocs": {
-    "description": "Find out more about Telematics APIs",
+    "description": "More About Telematics APIs.",
     "url": "https://www.mapmyindia.com/intouch/#telematics-tracking"
   },
   "servers": [
@@ -24,16 +24,8 @@
   ],
   "tags": [
     {
-      "name": "Telematics APIs",
-      "description": "Everything about your Devices",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "https://www.mapmyindia.com/intouch/#telematics-tracking"
-      }
-    },
-    {
-      "name": "IOT Applications",
-      "description": "Everything about IoT applications",
+      "name": "Intouch IoT Apps",
+      "description": "Everything about IoT apps powered by Intouch",
       "externalDocs": {
         "description": "Find out more",
         "url": "https://www.mapmyindia.com/intouch/"
@@ -46,8 +38,8 @@
         "tags": [
           "devices"
         ],
-        "summary": "Live data of devices",
-        "description": "Get live device details by single or multiple IDs.",
+        "summary": "Gets the live data of devices.",
+        "description": "This API returns accurate live location and related data of vehicles, assets & people with help of connected devices/sensors/mobiles to provide location awareness to users of your app. The API provides real-time visibility of your tracked objects, giving not just location information, but multiple additional fields which add value to your application. The API is capable of being used for multiple use cases: be it for transport - logistics or for personnel information services for all kinds of web or mobile development platforms.",
         "operationId": "getDeviceById",
         "parameters": [
           {
@@ -126,7 +118,8 @@
         "tags": [
           "drives"
         ],
-        "summary": "Gets live details of all devices.",
+        "summary": "Gets drive details of a device.",
+        "description": "This API is used to request the drive details of a vehicle in an account on our telematics platform. A vehicle can be a device/sensor connected to our telematics platform directly or via a third party data aggregator who utilises our telematics platform for tracking services. Drive is a list of reported geo-positions of any object (such as vehicles, assets or people) according to pre-defined conditions",
         "operationId": "getDrives",
         "parameters": [
           {
@@ -195,7 +188,8 @@
         "tags": [
           "events"
         ],
-        "summary": "Gets the location events of a device",
+        "summary": "Gets the historical location events of a device.",
+        "description": "This API is used to get the historical location information as well as related additional information for a vehicle. This API can be used thus to create customized reports for users of your apps for different use cases, e.g.: plot the vehicle's past movements on map or get a historical graph of change in a vehicle's altitude.",
         "operationId": "getLocationEvents",
         "parameters": [
           {
@@ -208,7 +202,7 @@
             }
           },
           {
-            "name": "starttime",
+            "name": "startTime",
             "in": "query",
             "description": "The starting timsstamp from which the events need to be fetched.",
             "required": true,
@@ -217,7 +211,7 @@
             }
           },
           {
-            "name": "endtime",
+            "name": "endTime",
             "in": "query",
             "description": "The end timestamp till which the events need to be fetched.",
             "required": true,
@@ -374,7 +368,7 @@
             "description": "This is the alarm's ID, a non-mandatory parameter. If not passed then by default the API will return the list of all alarm configurations in the account. You can pass single value or comma separated alarm IDs for multiple values.",
             "required": false,
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "number"
               }
@@ -387,7 +381,7 @@
             "description": "This is device ID. API will return data based on the configs set for the passed device IDs. You can pass a single device ID or comma seperated multiple device IDs.",
             "required": false,
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "number"
               }
@@ -400,7 +394,7 @@
             "description": "This is alarm type. API will return data based on the passed alarm types. You can pass a single alarm type or comma seperated multiple alarm types.",
             "required": false,
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "number"
               }
@@ -577,7 +571,7 @@
         }
       }
     },
-    "/alarm/alarmLog": {
+    "/alarm/alarmLog/": {
       "get": {
         "tags": [
           "alarm"
@@ -591,7 +585,7 @@
             "required": false,
             "example": "1909,2545",
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "number"
               }
@@ -604,7 +598,7 @@
             "required": false,
             "example": "21,26",
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "integer"
               }
@@ -670,12 +664,15 @@
         }
       }
     },
-    "/geofence": {
+    "/geofence/": {
+      "summary": "Geofence APIs",
+      "description": "The geofence APIs allow you to manage virtual geographical areas or geofences for your account on MapmyIndia's telematics platform. Geographic areas are defined as geometries in the form of geographic polygons, circles, or points that are relevant for any connected device/sensor: The presence or absence (entry or exit) of a vehicle to such geographic areas needs to be monitored and/or events generated on the basis of such transitions. The events might be alarms or reports of vehicles entering or exiting such geofences. These Geofence APIs allow you to create/edit/assign/delink/update geofences.",
       "get": {
         "tags": [
           "geofence"
         ],
         "summary": "Gets All The Configured Geofence(s)",
+        "description": "This API returns the list of all the configured geofences ",
         "parameters": [
           {
             "name": "ignoreGeometry",
@@ -732,7 +729,8 @@
         "tags": [
           "geofence"
         ],
-        "summary": "creates a new geofence",
+        "summary": "Create A New Geofence",
+        "description": "This API helps to create a new geofence",
         "requestBody": {
           "content": {
             "application/form-data": {
@@ -795,12 +793,13 @@
         "tags": [
           "geofence"
         ],
-        "summary": "Get a single or multiple geofences.",
+        "summary": "Get A Single Or Multiple Geofence(s).",
+        "description": "This API helps to fetch the details of a particular geofence",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "geofence id.",
+            "description": "geofence id. This path variable will take precedence even if multiple geofence ids are passed in the query param.",
             "required": true,
             "schema": {
               "type": "integer"
@@ -812,7 +811,7 @@
             "description": "geofence id. Use this if you want to get details of specific multiple geofence IDs.",
             "required": false,
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "number"
               },
@@ -874,8 +873,8 @@
         "tags": [
           "geofence"
         ],
-        "summary": "updates a particular geofence.",
-        "description": "POST API to update a geofence",
+        "summary": "Update A Geofence.",
+        "description": "This API helps to update a particular geofence.",
         "parameters": [
           {
             "name": "id",
@@ -945,8 +944,8 @@
         "tags": [
           "geofence"
         ],
-        "summary": "deletes a particular geofence.",
-        "description": "DELETE API to delete a geofence",
+        "summary": "Delete A Geofence.",
+        "description": "This API helps to delete a geofence.",
         "parameters": [
           {
             "name": "id",
@@ -1787,6 +1786,18 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "bearerToken": []
+    }
+  ]
 }
