@@ -984,14 +984,9 @@ components:
             - true
             - false
         status:
-          type: string
-          example: idle
-          description: device movement status
-          enum:
-            - moving
-            - idle
-            - stopped
-            - towing
+          type: integer
+          example: 1
+          description: "1 is Moving<br> 2 is idle<br> 3 is stopped<br>4 is towing<br>5 is No Data<br>6 is power off i,e the device's battery is disconnected from the vehicle battery<br>7 is No GPS<br>12 is Activation Pending i,e the device is not yet active and is yet to send the first ping."
         vehicleBattery:
           type: number
           example: 13568.98
@@ -1001,9 +996,11 @@ components:
             gpsTime:
               type: number
               example: 1574736922
+              description: "time at which the device captures the packet"
             gprsTime:
               type: number
               example: 1574736922
+              description: "time at which the Intouch server receives the device packet"
             latitude:
               type: number
               example: 28.551255163434
@@ -1021,6 +1018,7 @@ components:
             heading:
               type: number
               example: 196.868
+              description: "value in degrees from the North"
             speedKph:
               type: number
               example: 27.85
@@ -1113,6 +1111,22 @@ components:
               type: integer
               example: 99
               description: "Fuel constant average"
+            ignition:
+              type: integer
+              example: 0
+              description: "0 is ignition off<br>1 is ignition on"
+            gearState:
+              type: integer
+              example: 2
+              description: "shows the current state of gear of the EV"
+            stateOfCharge:
+              type: integer
+              example: 87
+              description: "Value is in percentage, i,e the current percentage value at which the EV's battery is charged"
+            distanceToEmpty:
+              type: integer
+              example: 100
+              description: "distnace in KMs after which the EV will need to be charged"
         deviceFaults:
           type: array
           items:
