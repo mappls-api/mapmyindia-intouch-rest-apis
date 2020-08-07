@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/trip": {
+    "/trips": {
       "post": {
         "tags": [
           "trip"
@@ -293,7 +293,7 @@
         }
       }
     },
-    "/trip/{id}": {
+    "/trips/{id}": {
       "get": {
         "tags": [
           "trip"
@@ -370,7 +370,7 @@
         }
       }
     },
-    "/trip/{id}/close": {
+    "/trips/{id}/close": {
       "post": {
         "tags": [
           "trip"
