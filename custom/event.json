@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/device/{deviceId}/events": {
+    "/devices/{deviceId}/events": {
       "get": {
         "tags": [
           "events"
