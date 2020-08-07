@@ -113,7 +113,7 @@
         }
       }
     },
-    "/device/hardwareinfo": {
+    "/devices/hardwareinfo": {
       "get": {
         "tags": [
           "device hardware info"
@@ -165,7 +165,7 @@
         }
       }
     },
-    "/device/info": {
+    "/devices/info": {
       "get": {
         "tags": [
           "device basic info"
