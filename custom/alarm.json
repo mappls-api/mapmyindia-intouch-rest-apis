@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/alarm": {
+    "/alarms": {
       "post": {
         "tags": [
           "alarm"
@@ -204,7 +204,7 @@
         }
       }
     },
-    "/alarm/{id}": {
+    "/alarms/{id}": {
       "post": {
         "tags": [
           "alarm"
@@ -341,7 +341,7 @@
         }
       }
     },
-    "/alarm/alarmLog/": {
+    "/alarms/alarmlogs/": {
       "get": {
         "tags": [
           "alarm"
