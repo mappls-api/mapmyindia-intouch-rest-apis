@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/geofence/": {
+    "/geofences": {
       "summary": "Geofence APIs",
       "description": "The geofence APIs allow you to manage virtual geographical areas or geofences for your account on MapmyIndia's telematics platform. Geographic areas are defined as geometries in the form of geographic polygons, circles, or points that are relevant for any connected device/sensor: The presence or absence (entry or exit) of a vehicle to such geographic areas needs to be monitored and/or events generated on the basis of such transitions. The events might be alarms or reports of vehicles entering or exiting such geofences. These Geofence APIs allow you to create/edit/assign/delink/update geofences.",
       "get": {
@@ -157,7 +157,7 @@
         }
       }
     },
-    "/geofence/{id}": {
+    "/geofences/{id}": {
       "get": {
         "tags": [
           "geofence"
@@ -349,7 +349,7 @@
         }
       }
     },
-    "/geofence/activity": {
+    "/geofences/activities": {
       "get": {
         "tags": [
           "geofence"
