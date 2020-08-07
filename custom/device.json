@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/device": {
+    "/devices": {
       "get": {
         "tags": [
           "device live data"
