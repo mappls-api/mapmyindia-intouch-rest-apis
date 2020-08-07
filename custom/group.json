@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/group": {
+    "/groups": {
       "post": {
         "tags": [
           "group"
@@ -181,7 +181,7 @@
         }
       }
     },
-    "/group/{id}": {
+    "/groups/{id}": {
       "post": {
         "tags": [
           "group"
