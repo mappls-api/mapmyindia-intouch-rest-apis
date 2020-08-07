@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/device/drive": {
+    "/devices/drives": {
       "get": {
         "tags": [
           "drives"
