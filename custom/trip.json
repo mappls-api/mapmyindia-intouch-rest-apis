@@ -593,7 +593,15 @@
                 "description": "the planned distance (in meters) of the trip."
               }
             }
-          }
+          },
+          "links": {
+            "type": "object",
+            "properties": {
+              "embedUrl": {
+                "type": "string",
+                "description": "An embedded URL link of the trip. You can use this link to visualize the trip on your web or mobile app.",
+				"example": "https://intouch.mapmyindia.com/widget/trip/?id=5f314262cc37586794baa079&access_token=31edc7f9-cb49-4357-b085-d71d705773f5"
+              }
         }
       },
       "geofenceArrayObj": {
