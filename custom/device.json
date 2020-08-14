@@ -557,6 +557,11 @@
                 "example": 0,
                 "description": "1 means ON & 0 means OFF"
               },
+              "gearState": {
+                "type": "number",
+                "example": 0,
+                "description": "0 is Neutral, 1 is Drive, 2 is Sports, 3 is Reverse"
+              },
               "intakeAirTemp": {
                 "type": "number",
                 "example": 62,
