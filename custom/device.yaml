@@ -29,7 +29,7 @@ tags:
       description: Find out more
       url: 'https://www.mapmyindia.com/intouch/'
 paths:
-  /device:
+  /devices:
     get:
       tags:
         - device live data
@@ -106,7 +106,7 @@ paths:
           description: Unauthorized Request. Access to API is forbidden.
         '404':
           description: Not Found - URL Not Found
-  /device/hardwareinfo:
+  /devices/hardwareinfo:
     get:
       tags:
         - device hardware info
@@ -118,9 +118,9 @@ paths:
         - name: id
           in: query
           description: >-
-            This is the physical device's ID, a non-mandatory parameter. If not passed
-            then by default the API will return the hardware info of all active
-            devices in the account.
+            This is the physical device's ID, a non-mandatory parameter. If not
+            passed then by default the API will return the hardware info of all
+            active devices in the account.
           required: false
           schema:
             type: integer
@@ -135,8 +135,10 @@ paths:
         '204':
           description: No content found
         '400':
-          description:
-            Bad Request - Invalid device ID supplied or device id is missing or invalid data type. For example, input attribute id is integer but string value gets passed.
+          description: >-
+            Bad Request - Invalid device ID supplied or device id is missing or
+            invalid data type. For example, input attribute id is integer but
+            string value gets passed.
           content:
             application/json:
               schema:
@@ -145,7 +147,7 @@ paths:
           description: Unauthorized Request. Access to API is forbidden.
         '404':
           description: Not Found - URL Not Found
-  /device/info:
+  /devices/info:
     get:
       tags:
         - device basic info
@@ -157,9 +159,9 @@ paths:
         - name: id
           in: query
           description: >-
-            id of the device, a non-mandatory parameter. If not passed
-            then by default the API will return the basic info of all active
-            devices in the account.
+            id of the device, a non-mandatory parameter. If not passed then by
+            default the API will return the basic info of all active devices in
+            the account.
           required: false
           schema:
             type: integer
@@ -174,8 +176,10 @@ paths:
         '204':
           description: No content found
         '400':
-          description:
-            Bad Request - Invalid device ID supplied or device id is missing or invalid data type. For example, input attribute id is integer but string value gets passed.
+          description: >-
+            Bad Request - Invalid device ID supplied or device id is missing or
+            invalid data type. For example, input attribute id is integer but
+            string value gets passed.
           content:
             application/json:
               schema:
@@ -184,10 +188,8 @@ paths:
           description: Unauthorized Request. Access to API is forbidden.
         '404':
           description: Not Found - URL Not Found
-      
-      
 components:
-  schemas: 
+  schemas:
     devicebasicinfoobject:
       type: object
       properties:
@@ -202,10 +204,12 @@ components:
               name:
                 type: string
                 description: name of the device.
-                example: "my vehicle 1878"
+                example: my vehicle 1878
               type:
                 type: integer
-                description: 0 - car, 1 - person, 2 - asset, 3 - bike, 4 - bus, 5 - truck, 6 - tracktor.
+                description: >-
+                  0 - car, 1 - person, 2 - asset, 3 - bike, 4 - bus, 5 - truck,
+                  6 - tracktor.
                 example: 2
               creationOn:
                 type: number
@@ -226,15 +230,15 @@ components:
               registrationNumber:
                 type: string
                 description: device's registraion number
-                example: "DL03555"
+                example: DL03555
               manufacturer:
                 type: string
                 description: device manufactured by
-                example: "BMW"
+                example: BMW
               model:
                 type: string
                 description: device's model type
-                example: "X3"
+                example: X3
               color:
                 type: string
                 description: color of the device
@@ -248,16 +252,16 @@ components:
                 type: array
                 items:
                   type: string
-                  example: "xyz_mytag"
+                  example: xyz_mytag
                   description: tag a vehicle with custom string value
               chasisNo:
                 type: string
                 description: chasis number of the device.
-                example: "EXASDSSSSADC"
+                example: EXASDSSSSADC
               initialOdometer:
                 type: number
                 description: initial odometer reading.
-                example: 0.0
+                example: 0
     devicehardwareinfoobject:
       type: object
       properties:
@@ -271,47 +275,51 @@ components:
                 description: id of the physical hardware device
               name:
                 type: string
-                description: "name of the physical hardware device"
-                example: "MMI314295"
+                description: name of the physical hardware device
+                example: MMI314295
               deviceType:
                 type: integer
-                description: "type of device for eg; drivate, vt etc"
-                example: "868728030749458"
+                description: 'type of device for eg; drivate, vt etc'
+                example: '868728030749458'
               deviceTypeName:
                 type: string
-                description: "name of the type of device"
-                example: "drive mate pro"
+                description: name of the type of device
+                example: drive mate pro
               trackingCode:
                 type: string
-                description: "tracking code/unique code number of the device"
-                example: "868728030749458"
+                description: tracking code/unique code number of the device
+                example: '868728030749458'
               deviceCode:
                 type: string
-                description: "another unique number, genrally same as tracking code"
-                example: "868728030749458"  
+                description: 'another unique number, genrally same as tracking code'
+                example: '868728030749458'
               active:
                 type: boolean
-                description: "true means device is active. false means device is not active"
+                description: true means device is active. false means device is not active
                 example: true
               mappedDeviceIds:
                 type: array
                 items:
                   type: number
-                  description: "the ids of the entities which are linked to the id of the physical hardware device."
+                  description: >-
+                    the ids of the entities which are linked to the id of the
+                    physical hardware device.
                   example: 887876
               odometerType:
                 type: integer
-                description: "0 - odometer not suported, 1- GPS based odometer(comes from the device), 2 - CAN based Odometer(comes from vehicle's CAN bus)"
+                description: >-
+                  0 - odometer not suported, 1- GPS based odometer(comes from
+                  the device), 2 - CAN based Odometer(comes from vehicle's CAN
+                  bus)
                 example: 2
               installDate:
                 type: number
-                description: "timstamp when the device got installed"
+                description: timstamp when the device got installed
                 example: 1581273000
               expiryDate:
                 type: number
-                description: "timestamp when the device will get expired"
+                description: timestamp when the device will get expired
                 example: 1600713000
-            
     Device:
       type: object
       properties:
@@ -335,14 +343,10 @@ components:
             - true
             - false
         status:
-          type: string
-          example: idle
-          description: device movement status
-          enum:
-            - moving
-            - idle
-            - stopped
-            - towing
+          type: number
+          example: 1
+          description: device movement status<br> 1 -> moving<br>2 -> idle i,e ignition is on and speed <= 7km/hr<br>3 -> stopped i,e engine is off<br>4 -> towing i,e ignition is off, but vehicle speed<br>5 -> no data i,e no communication of device with intouch server or no GPRS signal<br>6 -> power off<br>7 -> no gps i,e satellite count is less than 4<br>8 -> on trip i,e device is currently on an active trip<br>9 -> free vehicle i,e device is not on any active trip
+          
         vehicleBattery:
           type: number
           example: 13568.98
@@ -452,6 +456,10 @@ components:
               type: number
               example: 0
               description: 1 means ON & 0 means OFF
+            gearState:
+              type: number
+              example: 0
+              description: '0 is Neutral, 1 is Drive, 2 is Sports, 3 is Reverse'
             intakeAirTemp:
               type: number
               example: 62
