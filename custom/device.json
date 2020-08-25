@@ -413,15 +413,9 @@
             ]
           },
           "status": {
-            "type": "string",
-            "example": "idle",
-            "description": "device movement status",
-            "enum": [
-              "moving",
-              "idle",
-              "stopped",
-              "towing"
-            ]
+            "type": "number",
+            "example": 1,
+            "description": "device movement status<br> 1 -> moving<br>2 -> idle i,e ignition is on and speed <= 7km/hr<br>3 -> stopped i,e engine is off<br>4 -> towing i,e ignition is off, but vehicle speed<br>5 -> no data i,e no communication of device with intouch server or no GPRS signal<br>6 -> power off<br>7 -> no gps i,e satellite count is less than 4<br>8 -> on trip i,e device is currently on an active trip<br>9 -> free vehicle i,e device is not on any active trip"
           },
           "vehicleBattery": {
             "type": "number",
