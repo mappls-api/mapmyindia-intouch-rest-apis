@@ -29,10 +29,10 @@ tags:
       description: Find out more
       url: 'https://www.mapmyindia.com/intouch/'
 paths:
-  /trip:
+  /trips:
     post:
       tags:
-        - trip
+        - trips
       summary: This API will create a trip.
       description: 'Based on the input parameters provided, a new trip will get created.'
       requestBody:
@@ -58,11 +58,11 @@ paths:
                   type: integer
                   description: >-
                     type of trip closure. 1 - trip will get closed based on the
-                    scheduled end time. 2 - trip will close when the device
+                    planned end time. 2 - trip will close when the device
                     enters the destination area/geofence. 3 - trip will get
                     closed manually by the user
                   example: 1
-                scheduledEndTime:
+                plannedEndTime:
                   type: number
                   example: 1591891234
                   description: >-
@@ -108,9 +108,9 @@ paths:
                     name:
                       type: string
                       description: name of the geofence/point
-                    scheduledAt:
+                    plannedTime:
                       type: number
-                      description: scheduled time at which device reach the destination
+                      description: planned time at which device reach the destination
                     metadata:
                       type: object
                       properties:
@@ -148,10 +148,10 @@ paths:
                       name:
                         type: string
                         description: name of the geofence/point
-                      scheduledAt:
+                      plannedTime:
                         type: number
                         description: >-
-                          scheduled timestamp at which device reach the
+                          planned timestamp at which device reach the
                           destination
                         example: null
                       metadata:
@@ -180,7 +180,7 @@ paths:
           description: Not Found - URL Not Found
     get:
       tags:
-        - trip
+        - trips
       summary: This API will get all the trips for a user.
       description: >-
         Based on the passed token key, the API will return the list of all the
@@ -247,10 +247,10 @@ paths:
           description: Unauthorized Request. Access to API is forbidden.
         '404':
           description: Not Found - URL Not Found
-  '/trip/{id}':
+  '/trips/{id}':
     get:
       tags:
-        - trip
+        - trips
       summary: Gets the details of a single trip
       parameters:
         - name: id
@@ -298,10 +298,10 @@ paths:
           description: Unauthorized Request. Access to API is forbidden.
         '404':
           description: URL Not Found
-  '/trip/{id}/close':
+  '/trips/{id}/close':
     post:
       tags:
-        - trip
+        - trips
       summary: POST API to close a trip.
       parameters:
         - name: id
@@ -353,7 +353,7 @@ components:
           example: 1
           description: >-
             type of trip closure. 1 - trip will get closed based on the
-            scheduled end time. 2 - trip will close when the device enters the
+            planned end time. 2 - trip will close when the device enters the
             destination area/geofence. 3 - trip will get closed manually by the
             user
         forceClose:
