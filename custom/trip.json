@@ -33,7 +33,7 @@
     }
   ],
   "paths": {
-    "/trips": {
+    "/trip": {
       "post": {
         "tags": [
           "trip"
@@ -49,6 +49,10 @@
                   "deviceId": {
                     "type": "number",
                     "description": "id of the device for which the trip is getting created."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name of the trip"
                   },
                   "forceClose": {
                     "type": "boolean",
@@ -94,8 +98,8 @@
                               "type": "number"
                             },
                             "example": [
-                              28.456,
-                              77.234
+                              77.234,
+                              28.456
                             ]
                           }
                         }
@@ -104,6 +108,10 @@
                         "type": "number",
                         "example": 100,
                         "description": "radius of the point"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name of the geofence/point"
                       },
                       "scheduledAt": {
                         "type": "number",
@@ -140,8 +148,8 @@
                                 "type": "number"
                               },
                               "example": [
-                                28.456,
-                                77.234
+                                77.234,
+                                28.456
                               ]
                             }
                           }
@@ -150,6 +158,10 @@
                           "type": "number",
                           "example": 100,
                           "description": "radius of the point"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name of the geofence/point"
                         },
                         "scheduledAt": {
                           "type": "number",
@@ -293,7 +305,7 @@
         }
       }
     },
-    "/trips/{id}": {
+    "/trip/{id}": {
       "get": {
         "tags": [
           "trip"
@@ -370,7 +382,7 @@
         }
       }
     },
-    "/trips/{id}/close": {
+    "/trip/{id}/close": {
       "post": {
         "tags": [
           "trip"
@@ -468,13 +480,13 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "lat": {
-                      "type": "number",
-                      "description": "latititude point"
-                    },
                     "lng": {
                       "type": "number",
                       "description": "longitude point"
+                    },
+                    "lat": {
+                      "type": "number",
+                      "description": "latititude point"
                     }
                   }
                 }
@@ -593,16 +605,6 @@
                 "description": "the planned distance (in meters) of the trip."
               }
             }
-          },
-          "links": {
-            "type": "object",
-            "properties": {
-              "embedUrl": {
-                "type": "string",
-                "description": "An embedded URL link of the trip. You can use this link to visualize the trip on your web or mobile app.",
-                "example": "https://intouch.mapmyindia.com/widget/trip/?id=5f314262cc37586794baa079&access_token=31edc7f9-cb49-4357-b085-d71d705773f5"
-              }
-            }
           }
         }
       },
@@ -632,8 +634,8 @@
                   "type": "number"
                 },
                 "example": [
-                  28.456,
-                  77.234
+                  77.234,
+                  28.456
                 ]
               }
             }
@@ -646,6 +648,10 @@
           "plannedTime": {
             "type": "number",
             "description": "planned timestamp at which device reach the destination"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the geofence point"
           },
           "arrivalTime": {
             "type": "number",
