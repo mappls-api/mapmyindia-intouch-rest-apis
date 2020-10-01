@@ -33,10 +33,10 @@
     }
   ],
   "paths": {
-    "/trip": {
+    "/trips": {
       "post": {
         "tags": [
-          "trip"
+          "trips"
         ],
         "summary": "This API will create a trip.",
         "description": "Based on the input parameters provided, a new trip will get created.",
@@ -61,10 +61,10 @@
                   },
                   "closureType": {
                     "type": "integer",
-                    "description": "type of trip closure. 1 - trip will get closed based on the scheduled end time. 2 - trip will close when the device enters the destination area/geofence. 3 - trip will get closed manually by the user",
+                    "description": "type of trip closure. 1 - trip will get closed based on the planned end time. 2 - trip will close when the device enters the destination area/geofence. 3 - trip will get closed manually by the user",
                     "example": 1
                   },
-                  "scheduledEndTime": {
+                  "plannedEndTime": {
                     "type": "number",
                     "example": 1591891234,
                     "description": "tentative time when trip will end. Mandatory field when user selects closure type as 1"
@@ -113,9 +113,9 @@
                         "type": "string",
                         "description": "name of the geofence/point"
                       },
-                      "scheduledAt": {
+                      "plannedTime": {
                         "type": "number",
-                        "description": "scheduled time at which device reach the destination"
+                        "description": "planned time at which device reach the destination"
                       },
                       "metadata": {
                         "type": "object",
@@ -163,9 +163,9 @@
                           "type": "string",
                           "description": "name of the geofence/point"
                         },
-                        "scheduledAt": {
+                        "plannedTime": {
                           "type": "number",
-                          "description": "scheduled timestamp at which device reach the destination",
+                          "description": "planned timestamp at which device reach the destination",
                           "example": null
                         },
                         "metadata": {
@@ -213,7 +213,7 @@
       },
       "get": {
         "tags": [
-          "trip"
+          "trips"
         ],
         "summary": "This API will get all the trips for a user.",
         "description": "Based on the passed token key, the API will return the list of all the trips.",
@@ -305,10 +305,10 @@
         }
       }
     },
-    "/trip/{id}": {
+    "/trips/{id}": {
       "get": {
         "tags": [
-          "trip"
+          "trips"
         ],
         "summary": "Gets the details of a single trip",
         "parameters": [
@@ -382,10 +382,10 @@
         }
       }
     },
-    "/trip/{id}/close": {
+    "/trips/{id}/close": {
       "post": {
         "tags": [
-          "trip"
+          "trips"
         ],
         "summary": "POST API to close a trip.",
         "parameters": [
@@ -459,7 +459,7 @@
           "closureType": {
             "type": "integer",
             "example": 1,
-            "description": "type of trip closure. 1 - trip will get closed based on the scheduled end time. 2 - trip will close when the device enters the destination area/geofence. 3 - trip will get closed manually by the user"
+            "description": "type of trip closure. 1 - trip will get closed based on the planned end time. 2 - trip will close when the device enters the destination area/geofence. 3 - trip will get closed manually by the user"
           },
           "forceClose": {
             "type": "boolean",
