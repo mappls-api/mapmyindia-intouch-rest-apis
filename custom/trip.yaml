@@ -44,6 +44,9 @@ paths:
                 deviceId:
                   type: number
                   description: id of the device for which the trip is getting created.
+                name:
+                  type: string
+                  description: name of the trip
                 forceClose:
                   type: boolean
                   description: >-
@@ -96,12 +99,15 @@ paths:
                           items:
                             type: number
                           example:
-                            - 28.456
                             - 77.234
+                            - 28.456
                     radius:
                       type: number
                       example: 100
                       description: radius of the point
+                    name:
+                      type: string
+                      description: name of the geofence/point
                     scheduledAt:
                       type: number
                       description: scheduled time at which device reach the destination
@@ -133,12 +139,15 @@ paths:
                             items:
                               type: number
                             example:
-                              - 28.456
                               - 77.234
+                              - 28.456
                       radius:
                         type: number
                         example: 100
                         description: radius of the point
+                      name:
+                        type: string
+                        description: name of the geofence/point
                       scheduledAt:
                         type: number
                         description: >-
@@ -367,12 +376,13 @@ components:
               items:
                 type: object
                 properties:
-                  lat:
-                    type: number
-                    description: latititude point
                   lng:
                     type: number
                     description: longitude point
+                  lat:
+                    type: number
+                    description: latititude point
+                  
         location:
           type: object
           description: "location data of the device. This will get returned only for a single trip when the 'deviceLocation' query param is set to true in the API."
@@ -484,8 +494,8 @@ components:
               items:
                 type: number
               example:
-                - 28.456
                 - 77.234
+                - 28.456
         radius:
           type: number
           example: 100
@@ -493,6 +503,9 @@ components:
         plannedTime:
           type: number
           description: planned timestamp at which device reach the destination
+        name:
+          type: string
+          description: name of the geofence point
         arrivalTime:
           type: number
           description: actual timestamp at which device reach the destination
