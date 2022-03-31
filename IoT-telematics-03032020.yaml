@@ -877,7 +877,6 @@ components:
                 - EVENT_LOCATION_STOP_PROGRAMMATICALLY = 7
         alerts:
           $ref: '#/components/schemas/AlertObject'
-          
     DeviceDrive:
       type: object
       properties:
@@ -1154,6 +1153,14 @@ components:
             todayDriveCount:
               type: integer
               example: 5
+        externalSensors:
+          type: array
+          items:
+            $ref: '#/components/schemas/externalSensorObject'
+        fuelLiters:
+          type: number
+          description: Fuel level in liters, This is calculated using external fuel sensor. 
+          example: 78.8
     AlertObject:
       properties:
         deviceId:
@@ -1278,7 +1285,6 @@ components:
         geofenceId:
           type: string
           example: '110019'
-    
     AlarmConfig:
       type: object
       properties:
@@ -1286,7 +1292,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetAlarmConfig'
-            
     GetAlarmConfig:
       type: object
       properties:  
@@ -1332,6 +1337,15 @@ components:
         severity:
           type: integer
           example: 0
+    externalSensorObject:
+      type: object
+      properties:
+        sensorId:
+          type: string
+          example: 1
+        temperature:
+          type: number
+          example: 28.32
           
     ApiResponse:
       type: object
