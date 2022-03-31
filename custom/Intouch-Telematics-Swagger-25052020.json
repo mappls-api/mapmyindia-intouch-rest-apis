@@ -1558,6 +1558,17 @@
                 "example": 5
               }
             }
+          },
+          "externalSensors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/externalSensorObject"
+            }
+          },
+          "fuelLiters": {
+            "type": "number",
+            "description": "Fuel level in liters, This is calculated using external fuel sensor.",
+            "example": 78.8
           }
         }
       },
@@ -1783,6 +1794,19 @@
           "severity": {
             "type": "integer",
             "example": 0
+          }
+        }
+      },
+      "externalSensorObject": {
+        "type": "object",
+        "properties": {
+          "sensorId": {
+            "type": "string",
+            "example": 1
+          },
+          "temperature": {
+            "type": "number",
+            "example": 28.32
           }
         }
       },
