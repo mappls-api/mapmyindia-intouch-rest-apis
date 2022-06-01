@@ -78,6 +78,16 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "name": "filterEvent",
+            "in": "query",
+            "example": false,
+            "description": "This field is ment for mobile phone devices. when you send this parameter as true then it eliminates the drifts based on the distance and angle. if you are using this API for mobile phone tracking then send the value as true to eliminate the drift.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -254,9 +264,9 @@
             ]
           },
           "movementStatus": {
-            "type": "integer",
-            "example": 1,
-            "description": "Checks the movement status of the device. 1:Moving 2:Idle 3:Stopped 4:Towing 5:No Data 6:Power Off 7:No Gps 8:On Trip 9:Free Vehicle"
+            "type": "string",
+            "example": moving,
+            "description": "Checks the movement status of the device. moving, idle, stopped, towing, nodata, poweroff, nogps, ontrip, freevehicle. No GPS packets are not to be displayed on the map and these No packet is not considered for the distance calculation."
           },
           "durationTime": {
             "type": "number",
