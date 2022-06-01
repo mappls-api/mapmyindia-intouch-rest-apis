@@ -265,7 +265,7 @@
           },
           "movementStatus": {
             "type": "string",
-            "example": moving,
+            "example": "moving",
             "description": "Checks the movement status of the device. moving, idle, stopped, towing, nodata, poweroff, nogps, ontrip, freevehicle. No GPS packets are not to be displayed on the map and these No packet is not considered for the distance calculation."
           },
           "durationTime": {
