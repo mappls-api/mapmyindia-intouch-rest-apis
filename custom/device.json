@@ -608,6 +608,11 @@
                 "example": 0,
                 "description": "This is parking break. 0 means parking break is disengaged & 1 means parking break is engaged"
               },
+              "obdStatus": {
+                "type": "integer",
+                "example": 0,
+                "description": "1 means OBD data is connected & 0 means OBD data is not connected. Normally when the Ignition is off OBD status will come as 0."
+              },
               "breakPedal": {
                 "type": "number",
                 "example": 0,
@@ -657,6 +662,41 @@
                 "type": "integer",
                 "example": 99,
                 "description": "Fuel constant average"
+              },
+              "canOdometer": {
+                "type": "number",
+                "example": 8807,
+                "description": "Vehicle Odomter Reading which is received from CAN."
+              },
+              "chargingStatus": {
+                "type": "integer",
+                "example": 0,
+                "description": "0 - means vehicle is not charging, 1- means vehicle is charging."
+              },
+              "distanceToEmpty": {
+                "type": "integer",
+                "example": 56,
+                "description": "Distance to empty gives the values in km."
+              },
+              "ignition": {
+                "type": "integer",
+                "example": 0,
+                "description": "0- means vehicle ignition is off, 1 means vehicle ignition is on. These values are received from CAN"
+              },
+              "stateOfCharge": {
+                "type": "integer",
+                "example": 0,
+                "description": "Vehicle charge level, Displays the values in percentage."
+              }
+            }
+          },
+          "Links": {
+            "type": "object",
+            "properties": {
+              "embedUrl": {
+                "type": "string",
+                "description": "Embeded link to display vehicles live location on Map",
+                "example": "https://intouch.mapmyindia.com/widget/live/devices/#/435528?access_token=5cb28126-806a-4830-84af-8adad5af2e81"
               }
             }
           },
@@ -705,6 +745,39 @@
             "type": "number",
             "description": "Fuel level in liters, Value is calculated using external fuel sensor.",
             "example": 78.8
+          },
+          "dinputs": {
+            "type": "object",
+            "properties": {
+              "1": {
+                "type": "number",
+                "example": 1
+              },
+              "2": {
+                "type": "number",
+                "example": null
+              },
+              "3": {
+                "type": "number",
+                "example": 0
+              },
+              "4": {
+                "type": "number",
+                "example": 1
+              },
+              "5": {
+                "type": "number",
+                "example": 1
+              },
+              "6": {
+                "type": "number",
+                "example": 1
+              },
+              "7": {
+                "type": "number",
+                "example": 1
+              }
+            }
           }
         }
       },
